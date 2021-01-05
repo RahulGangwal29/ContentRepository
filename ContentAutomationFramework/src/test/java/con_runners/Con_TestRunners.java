@@ -14,7 +14,7 @@ import cucumber.api.CucumberOptions;
 
 
 
-@CucumberOptions(features = "/ContentAutomationFramework/src/test/resources/testResources/KPS_En.feature", 
+@CucumberOptions(features = "/Users/rahgangw/git/Content-repository/ContentAutomationFramework/src/test/resources/testResources/KPS_En.feature", 
 		glue = {"con_stepDefinitions"},
 	//	plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"},
 		monochrome = true)

@@ -7,8 +7,8 @@ public class Constants {
 
 
 //	public static final String URL = configReader.getApplicationUrl(data);
-	public static final String Path_TestData = "/Users/rahgangw/eclipse-workspace/ContentAutomationFramework/src/test/java/dataEngine/ContentValidationWorkBook.xlsx";
-	public static final String Path_OR = "/Users/rahgangw/eclipse-workspace/ContentAutomationFramework/src/test/java/config/OR.txt";
+	public static final String Path_TestData = "/Users/rahgangw/git/Content-repository/ContentAutomationFramework/src/test/java/dataEngine/ContentValidationWorkBook.xlsx";
+	public static final String Path_OR = "/Users/rahgangw/git/Content-repository/ContentAutomationFramework/src/test/java/config/OR.txt";
 	public static final String File_TestData = "ContentValidationWorkBook.xlsx";
 	public static final String Driver_Path_Chrome = "/Users/rahgangw/Downloads/chromedriver.exe";
 	

@@ -54,22 +54,21 @@ public class DriverScript extends ActionKeywords {
 	public DriverScript() {
 
 		actionKeywords = new ActionKeywords();
-		method = actionKeywords.getClass().getMethods();
-
+		method = actionKeywords.getClass().getMethods();	
+		
 	}
-
 	
 
 	public void execute_TestCase() throws Exception {
 		
 		ExcelUtils.setExcelFile(Constants.Path_TestData);
-
-		//	DOMConfigurator.configure("log4j.xml");
-			String Path_OR = Constants.Path_OR;
-			FileInputStream fs = new FileInputStream(Path_OR);
-			OR = new Properties(System.getProperties());
-			OR.load(fs);
-
+		
+		String Path_OR = Constants.Path_OR;
+		FileInputStream fs = new FileInputStream(Path_OR);
+		OR = new Properties(System.getProperties());
+		OR.load(fs);
+		
+		
 			System.out.println(driver.getCurrentUrl());
 			String CurrentUrl = driver.getCurrentUrl();
 			
@@ -98,18 +97,18 @@ public class DriverScript extends ActionKeywords {
 							method[i].invoke(actionKeywords, sPageObject, sData);
 						
 							
-							sData = ExcelUtils.getCellData(iHomePage, Constants.Col_ExpectedContent, Constants.Sheet_OurFirmPage);
+							sData = ExcelUtils.getCellData(iOurFirm, Constants.Col_ExpectedContent, Constants.Sheet_OurFirmPage);
 							System.out.println(sData);
 							
-							sData1 = ExcelUtils.getCellData(iHomePage, Constants.Col_ActualContent, Constants.Sheet_OurFirmPage);
+							sData1 = ExcelUtils.getCellData(iOurFirm, Constants.Col_ActualContent, Constants.Sheet_OurFirmPage);
 							System.out.println(sData1);
 							
 							if (sData.equals(sData1)) {
-								ExcelUtils.setCellData(Constants.KEYWORD_MATCHED, iHomePage, Constants.Col_ContentMatched,
+								ExcelUtils.setCellData(Constants.KEYWORD_MATCHED, iOurFirm, Constants.Col_ContentMatched,
 										Constants.Sheet_OurFirmPage);
 								break;
 							} else {
-								ExcelUtils.setCellData(Constants.KEYWORD_NOT_MATCHED, iHomePage, Constants.Col_ContentMatched,
+								ExcelUtils.setCellData(Constants.KEYWORD_NOT_MATCHED, iOurFirm, Constants.Col_ContentMatched,
 										Constants.Sheet_OurFirmPage);
 								//ActionKeywords.closeBrowser();
 								break;
@@ -122,6 +121,54 @@ public class DriverScript extends ActionKeywords {
 					
                }
 				
+			else if(CurrentUrl.contains("our-projects"))
+				
+            {
+				
+				//	int iTotalTestCases = ExcelUtils.getRowCount(Constants.Sheet_OurFirmPage);
+					
+
+						sWebPageName = ExcelUtils.getCellData(iTestcase, Constants.Col_WebPageName, Constants.Sheet_OurProjectsPage);
+							
+				iProjects = ExcelUtils.getRowContains(sWebPageName, Constants.Col_WebPageName, Constants.Sheet_OurProjectsPage);
+				iTestLastStep = ExcelUtils.getTestStepsCount(Constants.Sheet_OurProjectsPage, sWebPageName, iProjects);
+
+				for (; iProjects < iTestLastStep; iProjects++) {
+					sActionKeyword = ExcelUtils.getCellData(iProjects, Constants.Col_ActionKeyword,
+							Constants.Sheet_OurProjectsPage);
+					sPageObject = ExcelUtils.getCellData(iProjects, Constants.Col_Component,
+							Constants.Sheet_OurProjectsPage);
+					
+					for (int i = 0; i < method.length; i++) {
+
+						if (method[i].getName().equals(sActionKeyword)) {
+
+							method[i].invoke(actionKeywords, sPageObject, sData);
+						
+							
+							sData = ExcelUtils.getCellData(iProjects, Constants.Col_ExpectedContent, Constants.Sheet_OurProjectsPage);
+							System.out.println(sData);
+							
+							sData1 = ExcelUtils.getCellData(iProjects, Constants.Col_ActualContent, Constants.Sheet_OurProjectsPage);
+							System.out.println(sData1);
+							
+							if (sData.equals(sData1)) {
+								ExcelUtils.setCellData(Constants.KEYWORD_MATCHED, iProjects, Constants.Col_ContentMatched,
+										Constants.Sheet_OurProjectsPage);
+								break;
+							} else {
+								ExcelUtils.setCellData(Constants.KEYWORD_NOT_MATCHED, iProjects, Constants.Col_ContentMatched,
+										Constants.Sheet_OurProjectsPage);
+								//ActionKeywords.closeBrowser();
+								break;
+
+							}
+						}
+					}
+				
+				}
+					
+            }
 				else
 				{
 					
