@@ -4,17 +4,21 @@ Slider_1_SubTitle=.//span[text()='holds an opportunity for something remarkable.
 CTA_Explore_More=.//span[text()='Explore more']
 
 #Our Firm
-Slider_1_Title_Firms=.//span[text()='Our firm']
-Slider_1_SubTitle_Firms=.//span[text()='From Sweden to the world']
+Slider_1_Title_Firms=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
+Slider_1_SubTitle_Firms=./html/body/div[1]/div/div[5]/div/div[1]
 
 #Our Projects
-Title=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
-Subtitle=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/p
+Title_Projects=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
+SubTitle_Projects=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/p
 
 #Our Services
-Services_Title=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
-Services_SubTitle=./html/body/div[1]/div/div[4]/section/div/div/div[1]/div/div/p
+Heading_Services=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
+SubHeading_Services=./html/body/div[1]/div/div[4]/section/div/div/div[1]/div/div/p
 
 #Insights
+Heading_Insights=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
+Insights_Card=./html/body/div[1]/div/div[4]/div/div/div[2]/div[3]/div/div[2]/div/div/p/a
 
 #Contact Us
+Heading_ContactUs=./html/body/div[1]/div/div[3]/section/div[2]/div/div/div/h1
+Info_ContactUs=./html/body/div[1]/div/section/div/div/div[1]/div/div/p
